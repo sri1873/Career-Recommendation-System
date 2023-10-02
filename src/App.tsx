@@ -1,24 +1,21 @@
 import React from 'react';
-
+import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from './Components/Login';
 import './App.css';
+import Home from './Components/Home';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar/>
+     
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path='/' element={<Home/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
