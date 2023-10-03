@@ -1,12 +1,23 @@
-import React from "react";
-
+import React,{useState} from "react";
+import Sidebar from "./Sidebar";
 
 
 const Navbar: React.FC = () => {
+
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const toggleSideBar: React.MouseEventHandler<HTMLElement> = (e) => {
+        setIsOpen(!isOpen);
+    }
+
     return (
-        <div className="navbar h-[10vh] p-4 bg-nav-bg  bg-no-repeat ">
+        <>
+        <div className="navbar sticky top-0 h-[10vh] p-4 bg-nav-bg  bg-no-repeat ">
             <ul className="flex justify-between">
-                <li><i className="fa-solid fa-bars"></i></li>
+                    <li onClick={e => toggleSideBar(e)}>
+                        {isOpen ? <i className="fa-solid fa-bars-staggered cursor-pointer pl-3"></i>:
+                        <i className="fa-solid fa-bars cursor-pointer pl-3" > </i>}
+                    </li>
                 <li><span className="font-semibold px-3">CRS</span></li>
                 <li>
                     <div className="profile flex items-center">
@@ -17,6 +28,8 @@ const Navbar: React.FC = () => {
                 </li>
             </ul>
         </div>
+            <Sidebar isOpen={ isOpen} />
+        </>
     );
 }
 
