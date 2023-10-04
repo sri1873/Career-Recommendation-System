@@ -145,13 +145,13 @@ export default function PieChart() {
                     anchor: 'top-left',
                     direction: 'column',
                     justify: false,
-                    translateX: 0,
+                    translateX: -110,
                     translateY: 0,
                     itemWidth: 100,
                     itemHeight: 20,
                     itemsSpacing: 0,
                     symbolSize: 20,
-                    itemDirection: 'left-to-right'
+                    itemDirection: 'right-to-left'
                 }
             ]}
         />

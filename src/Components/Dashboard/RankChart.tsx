@@ -111,18 +111,19 @@ export default function RankChart() {
     <ResponsiveRadialBar
         data={data}
         padding={0.4}
-        cornerRadius={2}            innerRadius={0.35}
+        cornerRadius={2}
+        innerRadius={0.25}
         margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
         colors={{ scheme: 'pink_yellowGreen' }}
         radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
         circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
         legends={[
             {
-                anchor: 'right',
-                direction: 'column',
+                anchor: 'bottom-left',
+                direction: 'row',
                 justify: false,
                 translateX: 80,
-                translateY: 0,
+                translateY: 20,
                 itemsSpacing: 6,
                 itemDirection: 'left-to-right',
                 itemWidth: 100,

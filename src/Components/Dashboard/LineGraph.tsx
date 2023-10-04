@@ -87,7 +87,9 @@ const data = [
   }]
 
 export default function LineGraph() {
-  return <ResponsiveLine data={data} margin={{
+  return <ResponsiveLine data={data}
+    
+    margin={{
     top: 50,
     right: 110,
     bottom: 25,

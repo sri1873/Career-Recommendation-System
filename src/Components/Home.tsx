@@ -1,14 +1,13 @@
 import React from 'react'
 import DashboardCharts from './Dashboard/DashboardCharts';
+import Recommendation from './Recommendation';
 
 
 const Home: React.FC = () => {
     return (
-        <div className='flex w-screen border-2 border-red-500 h-[90vh] '>
+        <div className='flex w-screen h-[90vh] '>
             <DashboardCharts />
-            <div className="recommendation border-2 border-red-500 p-7 w-[30vw]">
-                Recommendation
-            </div>
+            <Recommendation />
         </div>
     );
 }

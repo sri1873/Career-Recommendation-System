@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
 
     return (
         <>
-        <div className="navbar sticky top-0 h-[10vh] p-4 bg-nav-bg  bg-no-repeat ">
+        <div className="navbar sticky top-0 h-[10vh] p-4 bg-nav-bg bg-slate-100 z-10 bg-cover  bg-no-repeat ">
             <ul className="flex justify-between">
                     <li onClick={e => toggleSideBar(e)}>
                         {isOpen ? <i className="fa-solid fa-bars-staggered cursor-pointer pl-3"></i>:
