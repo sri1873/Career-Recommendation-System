@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import base from '../../apis/base'
-import './careerfitting.css'
+import '../styles/careerfitting.css'
 
 const CareerFitting = () => {
     const [recommend, setRecommend] = useState(null)

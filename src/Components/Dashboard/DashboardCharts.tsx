@@ -2,7 +2,7 @@ import LineGraph from './LineGraph';
 import React, { useState } from "react";
 import PieChart from './PieChart';
 import RankChart from './RankChart';
-import './dashboard.css'
+import '../styles/dashboard.css'
 
 
 
