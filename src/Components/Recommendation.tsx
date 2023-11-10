@@ -1,64 +1,63 @@
 import React from "react";
+import './styles/recommendation.css'
 
 const Recommendation = () => {
     return (
-        <div className="recommendation pt-3 p-7 w-[30vw]">
-            <div className="p-2">
-            Recommendation
-            </div>
-            <div className="bg-slate-100 rounded-md p-4 overflow-y-scroll h-[75vh]">
+        <div className="recommendation">
+            <div className="r-title">Recommendation</div>
+            <div className="r-body">
                 <ul>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>
                         </div>
                     </li>
-                    <li className="flex p-4 border-b border-slate-950/20">
-                        <i className="fa-brands fa-java text-4xl pr-2"></i>
+                    <li>
+                        <i className="fa-brands fa-java"></i>
                         <div>
                             <div className="sub">Java</div>
                             <div className="sub font-bold">Problem Solving</div>

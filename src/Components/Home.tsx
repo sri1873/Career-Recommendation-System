@@ -9,7 +9,7 @@ import './styles/home.css'
 const Home: React.FC = () => {
     const user: User = useSelector((state: AuthState) => state.user);
     return (
-        <div className='flex w-screen h-[90vh] '>
+        <div className='home'>
             <DashboardCharts />
             <Recommendation />
         </div>

@@ -1,12 +1,34 @@
-.dashboard-container{
+.dashboard-container {
     flex-direction: row;
     max-width: 70vw;
     justify-content: space-between;
+    margin-left: 5vw;
+    background-color: rgb(241 245 249);
 }
-.linegraph-container{
-    height:50vh;
+
+.secondary-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.25rem;
 }
-.piechart-container,.rankchart-container{
-    height:50vh;
+
+.linegraph-container {
+    height: 50vh;
+    padding: 1rem;
+}
+
+.piechart-container {
+    height: 45vh;
     width: 50vw;
+}
+
+.lg-title {
+    font-weight: 600;
+    padding-left: 1rem;
+}
+
+.pc-title {
+    font-weight: 600;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }
