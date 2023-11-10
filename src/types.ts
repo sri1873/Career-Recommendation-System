@@ -2,6 +2,7 @@ export interface User {
   userName: string | null;
   token: string | null;
   userId: string | null;
+  careerPath: string | null;
   roles: string[];
 }
 

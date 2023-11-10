@@ -1,0 +1,12 @@
+.home{
+    display: flex;
+    width: 100vw;
+    border: 2px solid red;
+    
+    height: 90vh;
+}
+.recommendation{
+    padding: 1.75rem;
+    border: 2px solid red;
+    width: 70vw;
+}

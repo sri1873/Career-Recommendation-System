@@ -1,0 +1,22 @@
+.navbar {
+    position: sticky;
+    top: 0px;
+    height: 10vh;
+    padding: 1rem;
+    background-image: url('/public/layered-steps-haikei.svg');
+    background-repeat: no-repeat;
+}
+.navbar ul{
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.burger{
+    cursor: pointer;
+    padding-left: 0.75rem;;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}

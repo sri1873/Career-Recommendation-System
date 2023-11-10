@@ -5,19 +5,25 @@ import Login from './Components/Login';
 import './App.css';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
+import RequireAuth from './helpers/RequireAuth';
+import { AuthState } from "./types";
 
 function App() {
+  const user: boolean = useSelector((state: AuthState) => state.isValid);
   return (
     <BrowserRouter>
-      <div className="container">
-        
-      <Navbar />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path='/' element={<Home />} />
+      <div className="main-container">
 
-      </Routes>
-  </div>
+        {user ? <Navbar /> : ""}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route element={<RequireAuth />}>
+            <Route path='/' element={<Home />} />
+          </Route>
+
+
+        </Routes>
+      </div>
 
     </BrowserRouter>
   );

@@ -1,59 +1,39 @@
 import React from "react";
+import './styles/sidebar.css'
 
 const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
-    
+
     return (
-        isOpen ? <div className={`sidebar w-[20vw] p-5 pr-0 h-[90vh] fixed bg-slate-100 bg-sidebar-bg z-10`}>
-            <ul className=" cursor-pointer">
-                <li className="p-4 hover:bg-slate-400/50">
+        <div className={isOpen ? `sidebar-active` : `sidebar`}>
+            <ul>
+                <li>
                     <i className="fa-solid fa-compass mr-4 text-lg"></i>
-                    Dashboard
+                    {isOpen ? "Dashboard" : null}
                 </li>
-                <li className="p-4  hover:bg-slate-400">
+                <li>
                     <i className="fa-solid fa-users mr-4 text-lg"></i>
-                    Student Profile
+                    {isOpen ? "Student Profile" : null}
                 </li>
-                <li className="p-4  hover:bg-slate-400">
+                <li>
                     <i className="fa-solid fa-graduation-cap mr-4 text-lg"></i>
-                    Career path
+                    {isOpen ? "Career path" : null}
                 </li>
-                <li className="p-4  hover:bg-slate-400 pr-0">
+                <li>
                     <i className="fa-solid fa-handshake mr-4 text-lg"></i>
-                    Recommendations
+                    {isOpen ? "Recommendations" : null}
                 </li>
-                <li className="p-4  hover:bg-slate-400">
+                <li>
                     <i className="fa-solid fa-chart-line mr-4 text-lg"></i>
-                    Progress Tracker
+                    {isOpen ? "Progress Tracker" : null}
                 </li>
-                <li className="p-4  hover:bg-slate-400 pr-0">
+                <li>
                     <i className="fa-solid fa-circle-nodes mr-4 text-lg"></i>
-                    Connect
+                    {isOpen ? "Connect" : null}
                 </li>
             </ul>
         </div>
-            : <div className={`sidebar w-[5vw] h-[90vh] fixed bg-slate-100 bg-sidebar-bg z-10 `}>
-            <ul className="">
-                <li className="p-4  hover:bg-slate-400  text-center">
-                    <i className="fa-solid fa-compass text-lg"></i>
-                </li>
-                <li className="p-4  hover:bg-slate-400 text-center">
-                    <i className="fa-solid fa-users text-lg"></i>
-                </li>
-                <li className="p-4  hover:bg-slate-400 text-center">
-                    <i className="fa-solid fa-graduation-cap text-lg"></i>
-                </li>
-                <li className="p-4  hover:bg-slate-400 text-center">
-                    <i className="fa-solid fa-handshake text-lg"></i>
-                </li>
-                <li className="p-4  hover:bg-slate-400 text-center">
-                    <i className="fa-solid fa-chart-line text-lg"></i>
-                </li>
-                <li className="p-4  hover:bg-slate-400 text-center">
-                    <i className="fa-solid fa-circle-nodes text-lg"></i>
-                </li>
-            </ul>
-        </div>
-        
+
+
     );
 }
 

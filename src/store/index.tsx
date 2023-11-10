@@ -17,6 +17,7 @@ const authSlice = createSlice({
       userName: null,
       token: null,
       userId: null,
+      careerPath: null,
       roles: [],
     },
     errorMsg: "",
@@ -27,6 +28,7 @@ const authSlice = createSlice({
     },
     addUser: (state: AuthState, action: PayloadAction<User>) => {
       state.user.userId = action.payload.userId;
+      state.user.careerPath = action.payload.careerPath;
       state.user.token = action.payload.token;
       state.user.roles = action.payload.roles;
       state.user.userName = action.payload.userName;
