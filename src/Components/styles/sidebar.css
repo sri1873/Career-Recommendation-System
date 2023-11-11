@@ -19,21 +19,21 @@
     
 }
 
-.sidebar ul li,
-.sidebar-active ul li {
+.sidebar ul a,
+.sidebar-active ul a {
     padding: 1rem;
+    display: block;
 }
 
-.sidebar ul li{
+.sidebar ul a{
     padding-left: 0;
 }
 
-.sidebar-active ul li:hover {
+.sidebar-active ul a:hover {
     background-color: #5522897c;
     color: white;
     border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    
+    border-bottom-left-radius: 50px   
 }
 
 .sidebar {
