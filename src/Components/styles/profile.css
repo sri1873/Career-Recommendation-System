@@ -1,0 +1,33 @@
+.profile-container {
+    display: flex;
+    padding: 1.5rem;
+    padding-left: 7vw;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.p-details {
+    padding-left: 0.5rem;
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-image {
+    background-image: url('/public/profile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    height: 40vh;
+    width: 20vw;
+    border: 1px solid rgba(0, 0, 0, 0.639);
+}
+
+
+.progress-tracker{
+    border: 1px solid rgb(61, 61, 61);
+    border-radius: 10px;
+    width: 68vw;
+    padding: 0.5rem;
+}

@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar';
 import RequireAuth from './helpers/RequireAuth';
 import { AuthState } from "./types";
 import CareerFitting from './Components/CareerFitting/CareerFitting';
+import Profile from './Components/Profile';
 
 function App() {
   const user: boolean = useSelector((state: AuthState) => state.isValid);
@@ -21,6 +22,7 @@ function App() {
           <Route element={<RequireAuth />}>
             <Route path='/' element={<Home />} />
             <Route path='/careerfitting' element={<CareerFitting />} />
+            <Route path='/profile' element={<Profile />} />
           </Route>
 
 

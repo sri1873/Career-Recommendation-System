@@ -1,7 +1,6 @@
 .recommendation {
-    padding: 1.75rem;
-    padding: 1.75rem;
-    width: 30vw;
+    padding-left: 1.75rem;
+    max-width: 30vw;
 }
 
 .r-title {
@@ -9,22 +8,50 @@
 }
 
 .r-body {
-    padding: 1rem;
-    background-color: rgb(241 245 249);
+    padding-left: 0.5rem;
     border-radius: 0.375rem;
     overflow-y: scroll;
-    height: 75vh;
+    height: 80vh;
+}
+.r-body::-webkit-scrollbar{
+    display: none;
+}
+::-webkit-scrollbar {
+    width: 20px;
 }
 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
 .r-body ul li {
+    background-color: rgb(241 245 249);
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
     list-style: none;
-    display: flex;
     padding: 1rem;
-    border-bottom: 1px solid rgba(2, 6, 23, 0.2);
+    display: flex;
+    cursor: pointer;
 }
 
-.r-body ul li .fa-brands {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    padding-right: 0.5rem;
+.r-body ul {
+    padding-left: 0.5rem;
+}
+.sub-point{
+    display:none !important;
+}
+.sub-point-active{
+    display:flex;
+    padding:  0.75rem 0 0 !important;
+    
 }

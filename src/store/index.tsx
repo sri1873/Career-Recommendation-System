@@ -27,11 +27,10 @@ const authSlice = createSlice({
       state.isValid = !state.isValid;
     },
     addUser: (state: AuthState, action: PayloadAction<User>) => {
-      state.user.userId = action.payload.userId;
-      state.user.careerPath = action.payload.careerPath;
-      state.user.token = action.payload.token;
-      state.user.roles = action.payload.roles;
-      state.user.userName = action.payload.userName;
+      const newUser = action.payload;
+      state.user.userId ? state.user = { ...state.user, ...newUser } :
+        state.user = { ...newUser };
+      console.log(action.payload);
     },
     setErrorMsg: (state: AuthState, action: PayloadAction<string>) => {
       state.errorMsg = action.payload;

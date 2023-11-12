@@ -10,7 +10,7 @@ const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
                     <i className="fa-solid fa-compass mr-4 text-lg"></i>
                     {isOpen ? "Dashboard" : null}
                 </a>
-                <a href="/">
+                <a href="/profile">
                     <i className="fa-solid fa-users mr-4 text-lg"></i>
                     {isOpen ? "Student Profile" : null}
                 </a>

@@ -6,7 +6,6 @@ import { AuthState } from "../types";
 
 const RequireAuth:React.FC = () => {
   const user:boolean = useSelector((state: AuthState) => state.isValid);
-//   const roles:string[] = useSelector((state: AuthState) => state.user.roles);
     const location = useLocation();
     
   return user ? (

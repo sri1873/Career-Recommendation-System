@@ -1,54 +1,54 @@
 import { ResponsivePie } from '@nivo/pie';
 import React from "react"
 
-const data = [
-    {
-        "id": "c",
-        "label": "c",
-        "value": 126,
-        "color": "hsl(299, 70%, 50%)"
-    },
-    {
-        "id": "lisp",
-        "label": "lisp",
-        "value": 579,
-        "color": "hsl(325, 70%, 50%)"
-    },
-    {
-        "id": "ruby",
-        "label": "ruby",
-        "value": 174,
-        "color": "hsl(141, 70%, 50%)"
-    },
-    {
-        "id": "sass",
-        "label": "sass",
-        "value": 81,
-        "color": "hsl(1, 70%, 50%)"
-    },
-    {
-        "id": "php",
-        "label": "php",
-        "value": 335,
-        "color": "hsl(27, 70%, 50%)"
-    }
-]
+interface SkillScores {
+    data: { [key: string]: number }
+}
+// const data1 = {
+//     "Maths": 50,
+//     "C Programing": 75,
+//     "Python": 20,
+//     "HTML/CSS": 42.49999999999999,
+//     "Cloud Computing": 36,
+//     "Database Management": 10,
+//     "Data Structures": 50,
+//     "JavaScript": 42.49999999999999,
+//     "React": 60,
+//     "Node.js": 80,
+//     "Git": 90,
+//     "UI/UX Design": 69,
+//     "Software Architecture": 34,
+//     "Software Testing": 12,
+//     "Software Troubleshooting and Debugging": 22,
+//     "Problem Solving": 64,
+//     "Projects": 79,
+//     "Internships": 40
+// }
+const PieChart: React.FC<SkillScores> = ({data}) => {
 
-export default function PieChart() {
+    const pieData = Object.entries(data).map(([id, value]) => ({
+        id: id.toLowerCase().replace(/\s+/g, '_'), // Assuming 'id' is a simplified version of the key
+        label: id.toLowerCase(),
+        value: parseFloat(value.toFixed(2)), // Rounding the value to 2 decimal places
+    }));
+
+    console.log(pieData)
+
     return (
         <ResponsivePie
-            data={data}
+            data={pieData}
             margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
             innerRadius={0.35}
+            padAngle={2}
             cornerRadius={4}
             activeOuterRadiusOffset={8}
-            colors={{ scheme: 'oranges' }}
+            colors={{ scheme: 'purpleRed_green' }}
             borderWidth={1}
             borderColor={{
                 from: 'color',
                 modifiers: [
                     [
-                        'darker',0.2
+                        'darker', 0.2
                     ]
                 ]
             }}
@@ -69,92 +69,9 @@ export default function PieChart() {
                     ]
                 ]
             }}
-            defs={[
-                {
-                    id: 'dots',
-                    type: 'patternDots',
-                    background: 'inherit',
-                    color: 'rgba(255, 255, 255, 0.3)',
-                    size: 4,
-                    padding: 1,
-                    stagger: true
-                },
-                {
-                    id: 'lines',
-                    type: 'patternLines',
-                    background: 'inherit',
-                    color: 'rgba(255, 255, 255, 0.3)',
-                    rotation: -45,
-                    lineWidth: 6,
-                    spacing: 10
-                }
-            ]}
-            fill={[
-                {
-                    match: {
-                        id: 'ruby'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'c'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'go'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'python'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'scala'
-                    },
-                    id: 'lines'
-                },
-                {
-                    match: {
-                        id: 'lisp'
-                    },
-                    id: 'lines'
-                },
-                {
-                    match: {
-                        id: 'elixir'
-                    },
-                    id: 'lines'
-                },
-                {
-                    match: {
-                        id: 'javascript'
-                    },
-                    id: 'lines'
-                }
-            ]}
+           
             motionConfig="wobbly"
-            legends={[
-                {
-                    anchor: 'top-left',
-                    direction: 'column',
-                    justify: false,
-                    translateX: -110,
-                    translateY: 0,
-                    itemWidth: 100,
-                    itemHeight: 20,
-                    itemsSpacing: 0,
-                    symbolSize: 20,
-                    itemDirection: 'right-to-left'
-                }
-            ]}
         />
     );
 }
-
+export default PieChart;
