@@ -101,3 +101,7 @@ export interface BookingByUser{
 }
 
 
+export interface OperformanceType {
+  _id: string,
+  performance: { target: number, actual: number, label: string }[]
+}

@@ -12,7 +12,7 @@ const Recommendation = () => {
     const user: User = useSelector((state: AuthState) => state.user);
 
     useEffect(() => {
-        base.post(`user/recommendations?studentId=${user.userId}`).then(res => { setRecommendation(res.data); })
+        base.post(`analysis/recommendations?studentId=${user.userId}`).then(res => { setRecommendation(res.data); })
     }, [])
 
     const expandRecom = (subject: string) => {

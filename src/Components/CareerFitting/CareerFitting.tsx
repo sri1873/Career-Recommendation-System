@@ -25,12 +25,12 @@ const CareerFitting = () => {
     const dispatch: Dispatch = useDispatch();
 
     useEffect(() => {
-        base.get('user/getCareerPaths').then(res => setCareerPaths(res.data))
-        base.get(`user/careerfit?studentId=${user.userId}`)
+        base.get('career/getCareerPaths').then(res => setCareerPaths(res.data))
+        base.get(`career/careerfit?studentId=${user.userId}`)
             .then(res => setRecommend(res.data));
     }, [user.userId])
     const handleChangePath = () => {
-        base.put(`user/careerpathupdate?studentId=${user.userId}&careerpath=${selectedPath?.role}`)
+        base.put(`career/careerpathupdate?studentId=${user.userId}&careerpath=${selectedPath?.role}`)
         const temp_user: User = user;
         selectedPath ? temp_user.careerPath = selectedPath.role : temp_user.careerPath = null;
         console.log(temp_user);

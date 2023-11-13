@@ -5,24 +5,26 @@ import RankChart from './RankChart';
 import '../styles/dashboard.css'
 import base from '../../apis/base';
 import { useSelector } from 'react-redux';
-import { AuthState, User } from '../../types';
+import { AuthState, OperformanceType, User } from '../../types';
 
 
 
 const DashboardCharts: React.FC = () => {
-    const [skillGap, setSkillGap] = useState<{ [key:string]: number }>({})
+    const [skillGap, setSkillGap] = useState<{ [key: string]: number }>({})
+    const [oPerformance, setOPerformance] = useState<OperformanceType|null>(null)
     const user: User = useSelector((state: AuthState) => state.user);
     useEffect(() => {
-        base.post(`user/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
+        base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
+        base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => { setOPerformance(res.data); })
     }, [])
-    
+
 
 
     return (
         <div className='dashboard-container'>
             <div className="linegraph-container">
                 <div className="lg-title">Overall Performance</div>
-                <LineGraph />
+                <LineGraph data={oPerformance?.performance} />
             </div>
             <div className="secondary-container">
                 <div className="piechart-container">
