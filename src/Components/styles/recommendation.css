@@ -1,6 +1,7 @@
 .recommendation {
     padding-left: 1.75rem;
-    max-width: 30vw;
+    max-width: 25vw;
+    border-left: 1px solid rgb(69, 69, 69);
 }
 
 .r-title {
@@ -35,7 +36,7 @@
     background-color: #a8bbbf;
 }
 .r-body ul li {
-    background-color: rgb(241 245 249);
+    background-color: rgb(69, 69, 69);
     margin-bottom: 0.5rem;
     border-radius: 10px;
     list-style: none;

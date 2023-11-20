@@ -5,8 +5,8 @@
     padding-right: 0px;
     height: 90vh;
     position: fixed;
-    background-image: url('/public/side-bar-bg.svg');
     z-index: 10;
+    background-image: url('/public/side-bar-bg.svg');
     background-color: rgb(241, 245, 249)
 }
 

@@ -3,8 +3,9 @@
     top: 0px;
     height: 10vh;
     padding: 1rem;
-    background-image: url('/public/layered-steps-haikei.svg');
+    /* background-image: url('/public/layered-steps-haikei.svg');
     background-repeat: no-repeat;
+    background-size: cover; */
 }
 .navbar ul{
     padding-left: 0;

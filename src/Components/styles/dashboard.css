@@ -1,9 +1,10 @@
 .dashboard-container {
     flex-direction: row;
-    max-width: 70vw;
+    max-width: 65vw;
     justify-content: space-between;
-    margin-left: 5vw;
-    background-color: rgb(241 245 249);
+    margin-left: 6vw;
+    background-color: rgb(69, 69, 69);
+    border-radius: 10px;
 }
 
 .secondary-container {
