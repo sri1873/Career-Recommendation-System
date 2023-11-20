@@ -1,6 +1,5 @@
 import React from "react";
 import { ResponsiveLine } from '@nivo/line'
-import { OperformanceType } from "../../types";
 const data1 = [
   {
     "id": "Progress",
@@ -90,7 +89,6 @@ const LineGraph: React.FC<lineProps> = ({ data }) => {
   const lineData = (data)?.map((perf) => (
     data1[0]['data'].push({ 'x': perf.label, "y": perf.actual }),
     data1[1]['data'].push({ 'x': perf.label, "y": perf.target })
-
   ));
 
   console.log(lineData)

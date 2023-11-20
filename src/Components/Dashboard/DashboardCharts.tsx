@@ -1,7 +1,6 @@
 import LineGraph from './LineGraph';
 import React, { useEffect, useState } from "react";
 import PieChart from './PieChart';
-import RankChart from './RankChart';
 import '../styles/dashboard.css'
 import base from '../../apis/base';
 import { useSelector } from 'react-redux';
@@ -16,7 +15,7 @@ const DashboardCharts: React.FC = () => {
     useEffect(() => {
         base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
         base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => { setOPerformance(res.data); })
-    }, [])
+    }, [user.userId])
 
 
 

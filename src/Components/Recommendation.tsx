@@ -13,7 +13,7 @@ const Recommendation = () => {
 
     useEffect(() => {
         base.post(`analysis/recommendations?studentId=${user.userId}`).then(res => { setRecommendation(res.data); })
-    }, [])
+    }, [user.userId])
 
     const expandRecom = (subject: string) => {
         visibleKey ? visibleKey === subject ? setVisibleKey(null) : setVisibleKey(subject) : setVisibleKey(subject);
