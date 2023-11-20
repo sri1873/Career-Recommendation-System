@@ -86,10 +86,10 @@ interface lineProps {
   data: { target: number, actual: number, label: string }[] | undefined
 }
 const LineGraph: React.FC<lineProps> = ({ data }) => {
-  const lineData = (data)?.map((perf) => (
-    data1[0]['data'].push({ 'x': perf.label, "y": perf.actual }),
-    data1[1]['data'].push({ 'x': perf.label, "y": perf.target })
-  ));
+  const lineData = (data)?.forEach((perf) => {
+    data1[0]['data'].push({ 'x': perf.label, 'y': perf.actual });
+    data1[1]['data'].push({ 'x': perf.label, 'y': perf.target });
+  });
 
   console.log(lineData)
   return <ResponsiveLine data={data1}
