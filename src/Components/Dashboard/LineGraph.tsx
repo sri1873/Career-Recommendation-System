@@ -57,7 +57,34 @@ const LineGraph: React.FC<lineProps> = ({ data }) => {
 
     }}
     theme={{
-      "textColor": 'white',
+      "axis": {
+        "domain": {
+          "line": {
+            "stroke": "#777777",
+            "strokeWidth": 1
+          }
+        },
+        "legend": {
+          "text": {
+            "fontSize": 12,
+            "fill": "#ffffff",
+            "outlineWidth": 0,
+            "outlineColor": "transparent"
+          }
+        },
+        "ticks": {
+          "line": {
+            "stroke": "#777777",
+            "strokeWidth": 1
+          },
+          "text": {
+            "fontSize": 11,
+            "fill": "#ffffff",
+            "outlineWidth": 0,
+            "outlineColor": "transparent"
+          }
+        }
+      },
       "tooltip": {
         "container": {
           "background": "#000000",

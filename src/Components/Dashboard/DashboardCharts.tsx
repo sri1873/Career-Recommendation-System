@@ -35,6 +35,7 @@ const DashboardCharts: React.FC = () => {
                     <PieChart data={skillGap} />
                 </div>
                 <div className="piechart-container">
+                    <div className="pc-title">Rank</div>
                     <RankChart data={ranks} />
                 </div>
             </div>

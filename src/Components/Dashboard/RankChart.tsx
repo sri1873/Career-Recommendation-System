@@ -1,41 +1,115 @@
-import React from 'react';
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { ResponsiveBar } from '@nivo/bar'
 import { RankType } from '../../types';
+import { BasicTooltip } from '@nivo/tooltip';
 
-const columns: ColumnsType<RankType> = [
-    {
-        title: 'Rank',
-        dataIndex: 'rank',
-        width:50
-    },
-    {
-        title: 'Student Name',
-        dataIndex: 'user_name',
-    },
-    {
-        title: 'Performance',
-        dataIndex: 'actual_marks',
-        width:100
-    }
-];
-interface Props {
-    data: RankType[] | null;
+interface RankData {
+    rank: number,
+    performance: number
 }
+const data1: any = []
 
-const RankChart: React.FC<Props> = ({ data }) => {
-
+interface rankprops { data: RankType[] | null }
+const RankChart: React.FC<rankprops> = ({ data }) => {
+    data?.map((el) => {
+        var temp_d = {
+            "rank": el.rank,
+            "performance": el.actual_marks,
+            "username":el.user_name
+        }
+        data1.push(temp_d);
+    })
+  
     return (
-        <div className='table-container'>
-            {data ?
-                <Table style={{backgroundColor :"black"}}
-                    columns={columns}
-                    dataSource={data}
-                    pagination={false}
-                    size='middle'
-                /> : null}
-        </div>
-    );
-};
+        <ResponsiveBar
+            tooltip={point => {
+                return <BasicTooltip id={point.data.performance} value={point.data.username} enableChip  />;
+            }}
+            data={data1}
+            keys={['performance']}
+            indexBy="rank"
+            borderRadius={3}
+            margin={{ top: 15, right: 50, bottom: 80, left: 60 }}
+            padding={0.3}
+            valueScale={{ type: 'linear' }}
+            colors={{ scheme: 'blues' }}
+            defs={[
+                {
+                    id: 'lines',
+                    type: 'patternLines',
+                    background: 'inherit',
+                    color: '#48cae4',
+                    rotation: 45,
+                    lineWidth: 6,
+                    spacing: 10
+                }
+            ]}
+            theme={{
+                "axis": {
+                    "domain": {
+                        "line": {
+                            "stroke": "#777777",
+                            "strokeWidth": 1
+                        }
+                    },
+                    "legend": {
+                        "text": {
+                            "fontSize": 12,
+                            "fill": "#ffffff",
+                            "outlineWidth": 0,
+                            "outlineColor": "transparent"
+                        }
+                    },
+                    "ticks": {
+                        "line": {
+                            "stroke": "#777777",
+                            "strokeWidth": 1
+                        },
+                        "text": {
+                            "fontSize": 11,
+                            "fill": "#ffffff",
+                            "outlineWidth": 0,
+                            "outlineColor": "transparent"
+                        }
+                    }
+                },
+                "tooltip": {
+                    "container": {
+                        "background": "#000000",
+                        "fontSize": 12
+                    }
+                },
+            }}
+            fill={[
+                {
+                    match: {
+                        id: 'performance'
+                    },
+                    id: 'lines'
+                },
+            ]}
+            axisTop={null}
+            axisRight={null}
+            axisBottom={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'Rank',
+                legendPosition: 'middle',
+                legendOffset: 32,
+                
+            }}
+            axisLeft={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'Perfromance',
+                legendPosition: 'middle',
+                legendOffset: -40,                
+            }}
+            labelSkipWidth={12}
+            labelSkipHeight={12}
+        />
+    )
+}
 
 export default RankChart;
