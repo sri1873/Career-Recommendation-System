@@ -13,12 +13,12 @@ body {
 }
 i{cursor: pointer;}
 a{
-  color: black;
+  color: whitesmoke;
   text-decoration: none;
   cursor: pointer;
 }
 a:hover {
-  color: rgba(46, 46, 46, 0.568);
+  color: blanchedalmond;
   text-decoration: underline;
 }
 code {

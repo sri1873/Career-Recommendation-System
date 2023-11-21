@@ -4,17 +4,21 @@ import PieChart from './PieChart';
 import '../styles/dashboard.css'
 import base from '../../apis/base';
 import { useSelector } from 'react-redux';
-import { AuthState, OperformanceType, User } from '../../types';
+import { AuthState, OperformanceType, User, RankType } from '../../types';
+import RankChart from './RankChart';
+
 
 
 
 const DashboardCharts: React.FC = () => {
     const [skillGap, setSkillGap] = useState<{ [key: string]: number }>({})
-    const [oPerformance, setOPerformance] = useState<OperformanceType|null>(null)
+    const [oPerformance, setOPerformance] = useState<OperformanceType | null>(null)
+    const [ranks, setRanks] = useState<RankType[] | null>(null)
     const user: User = useSelector((state: AuthState) => state.user);
     useEffect(() => {
         base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
         base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => { setOPerformance(res.data); })
+        base.post(`analysis/top_3rank?studentId=${user.userId}`).then(res => { setRanks(res.data); })
     }, [user.userId])
 
 
@@ -31,7 +35,7 @@ const DashboardCharts: React.FC = () => {
                     <PieChart data={skillGap} />
                 </div>
                 <div className="piechart-container">
-                    {/* <RankChart /> */}
+                    <RankChart data={ranks} />
                 </div>
             </div>
         </div>

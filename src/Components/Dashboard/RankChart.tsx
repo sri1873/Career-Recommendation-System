@@ -1,146 +1,43 @@
- import React from "react";
-import { ResponsiveRadialBar } from '@nivo/radial-bar'
+import React, { useState } from 'react';
+import { Divider, Radio, Table } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { RankType } from '../../types';
 
-const data = [
+const columns: ColumnsType<RankType> = [
     {
-        "id": "Supermarket",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 298
-            },
-            {
-                "x": "Fruits",
-                "y": 290
-            },
-            {
-                "x": "Meat",
-                "y": 31
-            }
-        ]
+        title: 'Rank',
+        dataIndex: 'rank',
+        width:50
     },
     {
-        "id": "Combini",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 119
-            },
-            {
-                "x": "Fruits",
-                "y": 66
-            },
-            {
-                "x": "Meat",
-                "y": 248
-            }
-        ]
+        title: 'Student Name',
+        dataIndex: 'user_name',
+        render: (text: string) => <a>{text}</a>,
     },
     {
-        "id": "Online",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 39
-            },
-            {
-                "x": "Fruits",
-                "y": 57
-            },
-            {
-                "x": "Meat",
-                "y": 162
-            }
-        ]
-    },
-    {
-        "id": "Marché",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 274
-            },
-            {
-                "x": "Fruits",
-                "y": 10
-            },
-            {
-                "x": "Meat",
-                "y": 222
-            }
-        ]
-    },
-    {
-        "id": "w",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 274
-            },
-            {
-                "x": "Fruits",
-                "y": 10
-            },
-            {
-                "x": "Meat",
-                "y": 222
-            }
-        ]
+        title: 'Performance',
+        dataIndex: 'actual_marks',
+        width:100
     }
-    ,
-    {
-        "id": "s",
-        "data": [
-            {
-                "x": "Vegetables",
-                "y": 274
-            },
-            {
-                "x": "Fruits",
-                "y": 10
-            },
-            {
-                "x": "Meat",
-                "y": 222
-            }
-        ]
-    }
-]
-export default function RankChart() {
+];
+interface Props {
+    data: RankType[] | null;
+}
+
+const RankChart: React.FC<Props> = ({ data }) => {
+
     return (
-    <ResponsiveRadialBar
-        data={data}
-        padding={0.4}
-        cornerRadius={2}
-        innerRadius={0.25}
-        margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
-        colors={{ scheme: 'pink_yellowGreen' }}
-        radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
-        circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
-        legends={[
-            {
-                anchor: 'bottom-left',
-                direction: 'row',
-                justify: false,
-                translateX: 80,
-                translateY: 20,
-                itemsSpacing: 6,
-                itemDirection: 'left-to-right',
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: '#999',
-                symbolSize: 18,
-                symbolShape: 'square',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
-        ]}
-        />
+        <div className='table-container'>
+            {data ?
+                <Table style={{backgroundColor :"black"}}
+                    columns={columns}
+                    dataSource={data}
+                    pagination={false}
+                    scroll={{ y: 150 }}
+                    size='small'
+                /> : null}
+        </div>
     );
- }
+};
+
+export default RankChart;

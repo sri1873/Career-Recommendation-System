@@ -16,11 +16,24 @@ const Home: React.FC = () => {
             {user.careerPath ?
                 <div className='home'>
                     <DashboardCharts />
-                    <Recommendation />
+                    <div className="rec-container">
+                        <Recommendation />
+                        <div className='c-path-home' >
+                            <div>
+                                <i className="fa-solid fa-road"></i>
+                                <span className="sub">Career Path</span>
+                                <a href="/careerfitting">
+                                <div className="sub">{user.careerPath}</div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
                 :
                 goToCareerPath()
-                }
+            }
         </>
     );
 }

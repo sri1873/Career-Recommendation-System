@@ -105,3 +105,9 @@ export interface OperformanceType {
   _id: string,
   performance: { target: number, actual: number, label: string }[]
 }
+export interface RankType{
+  _id: string,
+  user_name: string,
+  actual_marks: number,
+  rank: number
+}

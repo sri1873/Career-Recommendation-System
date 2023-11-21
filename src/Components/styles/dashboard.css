@@ -33,3 +33,9 @@
     padding-left: 1rem;
     padding-top: 1rem;
 }
+
+.table-container{
+    width: 80%;
+    height: 80%;
+    padding-top: 1.5rem;
+}

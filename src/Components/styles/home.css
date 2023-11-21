@@ -1,5 +1,18 @@
-.home{
+.home {
     display: flex;
     max-width: 100vw;
     max-height: 90vh;
+}
+
+.c-path-home {
+    /* border: 1px solid red; */
+    background-color: rgb(69, 69, 69);
+    height: 15vh;
+    margin-top: 2rem;
+    border-radius: 10px;
+    list-style: none;
+    padding: 1rem;
+    margin-left: 3rem;
+    display: flex;
+    cursor: pointer;
 }
