@@ -2,27 +2,24 @@ import { ResponsiveBar } from '@nivo/bar'
 import { RankType } from '../../types';
 import { BasicTooltip } from '@nivo/tooltip';
 
-interface RankData {
-    rank: number,
-    performance: number
-}
+
 const data1: any = []
 
 interface rankprops { data: RankType[] | null }
 const RankChart: React.FC<rankprops> = ({ data }) => {
-    data?.map((el) => {
+    data?.forEach((el) => {
         var temp_d = {
             "rank": el.rank,
             "performance": el.actual_marks,
-            "username":el.user_name
+            "username": el.user_name
         }
         data1.push(temp_d);
     })
-  
+
     return (
         <ResponsiveBar
             tooltip={point => {
-                return <BasicTooltip id={point.data.performance} value={point.data.username} enableChip  />;
+                return <BasicTooltip id={point.data.performance} value={point.data.username} enableChip />;
             }}
             data={data1}
             keys={['performance']}
@@ -31,18 +28,7 @@ const RankChart: React.FC<rankprops> = ({ data }) => {
             margin={{ top: 15, right: 50, bottom: 80, left: 60 }}
             padding={0.3}
             valueScale={{ type: 'linear' }}
-            colors={{ scheme: 'blues' }}
-            defs={[
-                {
-                    id: 'lines',
-                    type: 'patternLines',
-                    background: 'inherit',
-                    color: '#48cae4',
-                    rotation: 45,
-                    lineWidth: 6,
-                    spacing: 10
-                }
-            ]}
+            colors={['#48cae4']}
             theme={{
                 "axis": {
                     "domain": {
@@ -79,14 +65,6 @@ const RankChart: React.FC<rankprops> = ({ data }) => {
                     }
                 },
             }}
-            fill={[
-                {
-                    match: {
-                        id: 'performance'
-                    },
-                    id: 'lines'
-                },
-            ]}
             axisTop={null}
             axisRight={null}
             axisBottom={{
@@ -96,7 +74,7 @@ const RankChart: React.FC<rankprops> = ({ data }) => {
                 legend: 'Rank',
                 legendPosition: 'middle',
                 legendOffset: 32,
-                
+
             }}
             axisLeft={{
                 tickSize: 5,
@@ -104,7 +82,7 @@ const RankChart: React.FC<rankprops> = ({ data }) => {
                 tickRotation: 0,
                 legend: 'Perfromance',
                 legendPosition: 'middle',
-                legendOffset: -40,                
+                legendOffset: -40,
             }}
             labelSkipWidth={12}
             labelSkipHeight={12}
