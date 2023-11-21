@@ -10,6 +10,7 @@
 .navbar ul{
     padding-left: 0;
     display: flex;
+    width: 100vw;
     justify-content: space-between;
     list-style: none;
 }
@@ -20,4 +21,8 @@
 .profile{
     display: flex;
     align-items: center;
+}
+.logout{
+    float: right;
+    cursor: pointer;
 }

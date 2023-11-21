@@ -18,7 +18,7 @@ const DashboardCharts: React.FC = () => {
     useEffect(() => {
         base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
         base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => { setOPerformance(res.data); })
-        base.post(`analysis/top_3rank?studentId=${user.userId}`).then(res => { setRanks(res.data); })
+        base.get(`analysis/top_3rank?studentId=${user.userId}`).then(res => { setRanks(res.data); })
     }, [user.userId])
 
 

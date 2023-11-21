@@ -1,7 +1,19 @@
 .modal {
     display: block !important;
-    background-color: rgba(0, 0, 0, 0.427);
+    background-color: rgba(0, 0, 0, 0.7);
     color: black;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    max-width: 50vw !important;
+}
+
+.modal-content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/public/card.svg');
 }
 
 .cards-container {
@@ -21,21 +33,45 @@
     padding: 0.5rem;
     margin-bottom: 0.75rem;
 }
-.card-body{
+
+.card-body {
+    height: 35vh;
     padding: 1rem;
     border-radius: 0.375rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('/public/card.svg');
-    
-
 }
-.card{
+.card-badges{
+    overflow: hidden;
+    text-wrap: nowrap;
+    height: 20%;
+}
+
+.card-text{
+    padding-top: 0.5rem;
+    height: 70px;
+    line-height: 20px;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 3;
+    -moz-line-clamp: 3;
+    -ms-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.card {
     width: 18rem;
     margin-bottom: 1rem;
     cursor: pointer;
 }
-.badge{
+
+.badge {
     background-color: rgb(63, 62, 62);
     margin-right: 1rem;
 }

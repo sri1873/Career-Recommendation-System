@@ -56,8 +56,8 @@ const CareerFitting = () => {
                         ))}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-primary" onClick={e => handleChangePath()}>Set Current Path</button>
-                        <button type="button" className="btn btn-outline-secondary" onClick={e => setModal(false)}>Close</button>
+                        <button type="button" className="btn btn-outline-dark" onClick={e => handleChangePath()}>Set Current Path</button>
+                        <button type="button" className="btn btn-outline-light" onClick={e => setModal(false)}>Close</button>
 
                     </div>
                 </div>
@@ -76,12 +76,13 @@ const CareerFitting = () => {
                         <div className="card" key={path._id} onClick={e => { setSelectedPath(path); setModal(true); }}  >
                             <div className="card-body">
                                 <h5 className="card-title">{path.role}</h5>
-                                <h6 className="card-subtitle text-body-secondary">{path.similarity?.toPrecision(4)}% Match</h6>
-                                <h6 className="card-subtitle text-body-secondary">Description</h6>
+                                <h6 className="card-subtitle text-body-secondary"><strong>{path.similarity?.toPrecision(4)}% Match</strong></h6>
                                 <p className="card-text">{path.description}</p>
-                                {path.skills.map((skill) => (
-                                    <span className="badge badge-pill badge-primary">{skill}</span>
-                                ))}
+                                <div className="card-badges">
+                                    {path.skills.map((skill) => (
+                                        <span className="badge badge-pill badge-primary">{skill}</span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}</> : null}
@@ -90,11 +91,12 @@ const CareerFitting = () => {
                 <div key={path._id} className="card " onClick={e => { setSelectedPath(path); setModal(true); }} >
                     <div className="card-body">
                         <h5 className="card-title">{path.role}</h5>
-                        <h6 className="card-subtitle text-body-secondary">Description</h6>
                         <p className="card-text">{path.description}</p>
-                        {path.skills.map((skill) => (
-                            <span className="badge badge-pill badge-primary">{skill}</span>
-                        ))}
+                        <div className="card-badges">
+                            {path.skills.map((skill) => (
+                                <span className="badge badge-pill badge-primary">{skill}</span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             ))}

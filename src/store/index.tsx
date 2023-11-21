@@ -4,6 +4,14 @@ import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 import { AuthState, User } from "../types";
 
+const user_sample = {
+  userName: null,
+  token: null,
+  userId: null,
+  careerPath: null,
+  roles: [],
+}
+
 const persistConfig = {
   key: "root",
   storage,
@@ -13,13 +21,7 @@ const authSlice = createSlice({
   name: "authSlice",
   initialState: {
     isValid: false,
-    user: {
-      userName: null,
-      token: null,
-      userId: null,
-      careerPath: null,
-      roles: [],
-    },
+    user: user_sample,
     errorMsg: "",
   } as AuthState,
   reducers: {
@@ -30,7 +32,12 @@ const authSlice = createSlice({
       const newUser = action.payload;
       state.user.userId ? state.user = { ...state.user, ...newUser } :
         state.user = { ...newUser };
-      console.log(action.payload);
+
+    },
+    removeUser: (state: AuthState) => {
+      const newUser = user_sample
+      state.user = { ...newUser };
+
     },
     setErrorMsg: (state: AuthState, action: PayloadAction<string>) => {
       state.errorMsg = action.payload;
@@ -49,5 +56,5 @@ const store = configureStore({
 
 export { store };
 export const persistor = persistStore(store);
-export const { toggleActive, addUser, setErrorMsg, clearErrorMsg } =
+export const { toggleActive, addUser,removeUser, setErrorMsg, clearErrorMsg } =
   authSlice.actions;

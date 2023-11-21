@@ -1,29 +1,38 @@
 .dashboard-container {
+    padding: 1rem;
     flex-direction: row;
-    max-width: 65vw;
+    width: 65vw;
+    height: 85vh;
     justify-content: space-between;
     margin-left: 6vw;
-    background-color: rgb(69, 69, 69);
+    /* background-color: rgb(69, 69, 69); */
     border-radius: 10px;
+    overflow-y: scroll;
 }
 
 .secondary-container {
     display: flex;
     justify-content: space-between;
-    padding-top: 0.25rem;
+    padding-top: 0.5rem;
+    
 }
 
 .linegraph-container {
     height: 50vh;
     padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(69, 69, 69);
 }
 
 .piechart-container {
     height: 45vh;
-    width: 50vw;
+    width: 30vw;
+    border-radius: 10px;
+    background-color: rgb(69, 69, 69);
 }
 
 .lg-title {
+    
     font-weight: 600;
     padding-left: 1rem;
 }
@@ -34,8 +43,22 @@
     padding-top: 1rem;
 }
 
+.rank-container{
+    border-radius: 10px;
+    height: 45vh;
+    background-color:rgb(69, 69, 69);
+}
 .table-container{
-    width: 80%;
+    justify-content: center;
+    padding: 1rem;
+    padding-left: 0;
     height: 80%;
     padding-top: 1.5rem;
+}
+.ant-table-wrapper{
+    background-color: transparent !important ;
+}
+.ant-table-content,.ant-table-cell{
+    color: whitesmoke !important;
+    background-color:rgb(69, 69, 69) !important;
 }

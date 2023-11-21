@@ -7,35 +7,7 @@ const data1 = [
       {
         "x": "start",
         "y": 0
-      },
-      // {
-      //   "x": "boat",
-      //   "y": 389
-      // },
-      // {
-      //   "x": "train",
-      //   "y": 450
-      // },
-      // {
-      //   "x": "subway",
-      //   "y": 537
-      // },
-      // {
-      //   "x": "bus",
-      //   "y": 600
-      // },
-      // {
-      //   "x": "car",
-      //   "y": 685
-      // },
-      // {
-      //   "x": "moto",
-      //   "y": 759
-      // },
-      // {
-      //   "x": "bicycle",
-      //   "y": 800
-      // },
+      }
     ]
   }
   , {
@@ -46,38 +18,6 @@ const data1 = [
         "x": "start",
         "y": 0
       },
-      // {
-      //   "x": "helicopter",
-      //   "y": 350
-      // },
-      // {
-      //   "x": "boat",
-      //   "y": 390
-      // },
-      // {
-      //   "x": "train",
-      //   "y": 420
-      // },
-      // {
-      //   "x": "subway",
-      //   "y": 515
-      // },
-      // {
-      //   "x": "bus",
-      //   "y": 590
-      // },
-      // {
-      //   "x": "car",
-      //   "y": 600
-      // },
-      // {
-      //   "x": "moto",
-      //   "y": 730
-      // },
-      // {
-      //   "x": "bicycle",
-      //   "y": 750
-      // },
 
     ]
   }
@@ -94,33 +34,40 @@ const LineGraph: React.FC<lineProps> = ({ data }) => {
   console.log(lineData)
   return <ResponsiveLine data={data1}
     margin={{
-      top: 50,
+      top: 20,
       right: 110,
-      bottom: 25,
+      bottom: 40,
       left: 60
     }} xScale={{
       type: 'point'
     }} yScale={{
       type: 'linear',
-      min: 'auto',
-      max: 'auto',
-      stacked: false,
+      min: "auto",
+      max: "auto",
+      stacked: true,
       reverse: false
     }} curve="cardinal" axisTop={null} axisRight={null} axisBottom={{
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: 'transportation',
-      legendOffset: -40,
-      legendPosition: 'middle'
     }} axisLeft={{
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: 'count',
-      legendOffset: -40,
-      legendPosition: 'middle'
-    }} enableArea={true} pointSize={10} pointColor={{
+
+    }}
+    theme={{
+      "textColor": 'white',
+      "tooltip": {
+        "container": {
+          "background": "#000000",
+          "fontSize": 12
+        }
+      },
+    }}
+    enableArea={true}
+    colors={['#fdf0d5', '#48cae4']}
+    pointSize={10} pointColor={{
       theme: 'background'
     }} pointBorderWidth={2} pointBorderColor={{
       from: 'serieColor'

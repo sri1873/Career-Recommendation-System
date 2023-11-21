@@ -32,8 +32,7 @@ const RankChart: React.FC<Props> = ({ data }) => {
                     columns={columns}
                     dataSource={data}
                     pagination={false}
-                    scroll={{ y: 150 }}
-                    size='small'
+                    size='middle'
                 /> : null}
         </div>
     );

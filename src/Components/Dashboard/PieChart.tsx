@@ -42,7 +42,8 @@ const PieChart: React.FC<SkillScores> = ({data}) => {
             padAngle={2}
             cornerRadius={4}
             activeOuterRadiusOffset={8}
-            colors={{ scheme: 'purpleRed_green' }}
+            
+            colors={{ scheme: 'blues' }}
             borderWidth={1}
             borderColor={{
                 from: 'color',
@@ -54,7 +55,7 @@ const PieChart: React.FC<SkillScores> = ({data}) => {
             }}
             arcLinkLabelsSkipAngle={10}
             arcLinkLabelsTextOffset={9}
-            arcLinkLabelsTextColor="#333333"
+            arcLinkLabelsTextColor="#ffffff"
             arcLinkLabelsOffset={1}
             arcLinkLabelsStraightLength={26}
             arcLinkLabelsThickness={2}
@@ -62,6 +63,7 @@ const PieChart: React.FC<SkillScores> = ({data}) => {
             arcLabelsSkipAngle={10}
             arcLabelsTextColor={{
                 from: 'color',
+    
                 modifiers: [
                     [
                         'darker',
@@ -69,7 +71,14 @@ const PieChart: React.FC<SkillScores> = ({data}) => {
                     ]
                 ]
             }}
-           
+            theme={{
+                "tooltip": {
+                    "container": {
+                        "background": "#000000",
+                        "fontSize": 12
+                    }
+                },
+            }}
             motionConfig="wobbly"
         />
     );

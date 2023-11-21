@@ -28,7 +28,6 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-        console.log("yooooooooooooo")
         e.preventDefault();
         sessionStorage.clear();
         base({
