@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Divider, Radio, Table } from 'antd';
+import React from 'react';
+import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { RankType } from '../../types';
 
@@ -12,7 +12,6 @@ const columns: ColumnsType<RankType> = [
     {
         title: 'Student Name',
         dataIndex: 'user_name',
-        render: (text: string) => <a>{text}</a>,
     },
     {
         title: 'Performance',
