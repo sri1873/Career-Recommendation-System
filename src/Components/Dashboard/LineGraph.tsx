@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
 const data1 = [
   {
@@ -26,12 +26,13 @@ interface lineProps {
   data: { target: number, actual: number, label: string }[] | undefined
 }
 const LineGraph: React.FC<lineProps> = ({ data }) => {
-  const lineData = (data)?.forEach((perf) => {
-    data1[0]['data'].push({ 'x': perf.label, 'y': perf.actual });
-    data1[1]['data'].push({ 'x': perf.label, 'y': perf.target });
-  });
+  useEffect(() => {
+    (data)?.forEach((perf) => {
+      data1[0]['data'].push({ 'x': perf.label, 'y': perf.actual });
+      data1[1]['data'].push({ 'x': perf.label, 'y': perf.target });
+    });
+  }, [data])
 
-  console.log(lineData)
   return <ResponsiveLine data={data1}
     margin={{
       top: 20,
@@ -44,7 +45,7 @@ const LineGraph: React.FC<lineProps> = ({ data }) => {
       type: 'linear',
       min: "auto",
       max: "auto",
-      stacked: true,
+      stacked: false,
       reverse: false
     }} curve="cardinal" axisTop={null} axisRight={null} axisBottom={{
       tickSize: 5,
@@ -84,6 +85,9 @@ const LineGraph: React.FC<lineProps> = ({ data }) => {
             "outlineColor": "transparent"
           }
         }
+      },
+      "legends": {
+        "text": { "fill": "white" }
       },
       "tooltip": {
         "container": {

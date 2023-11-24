@@ -6,8 +6,10 @@
     height: 90vh;
     position: fixed;
     z-index: 10;
-    background-image: url('/public/side-bar-bg.svg');
-    background-color: rgb(241, 245, 249)
+}
+
+.sidebar-active {
+    background-image: url('/public/layered-steps-haikei.svg');
 }
 
 .sidebar ul,
@@ -16,7 +18,7 @@
     cursor: pointer;
     padding: 1rem;
     padding-right: 0;
-    
+
 }
 
 .sidebar ul a,
@@ -25,7 +27,7 @@
     display: block;
 }
 
-.sidebar ul a{
+.sidebar ul a {
     padding-left: 0;
 }
 
@@ -33,7 +35,7 @@
     background-color: #48cae475;
     color: blanchedalmond;
     border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px   
+    border-bottom-left-radius: 50px
 }
 
 .sidebar {
@@ -41,7 +43,8 @@
     overflow: hidden;
 }
 
-.fa-brands,.fa-solid {
+.fa-brands,
+.fa-solid {
     margin-right: 1rem;
     width: 1.5rem;
     font-size: 1.125rem;

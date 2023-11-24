@@ -8,7 +8,7 @@ import Navbar from './Components/Navbar';
 import RequireAuth from './helpers/RequireAuth';
 import { AuthState } from "./types";
 import CareerFitting from './Components/CareerFitting/CareerFitting';
-import Profile from './Components/Profile';
+import Profile from './Components/UserProfile/Profile';
 
 function App() {
   const user: boolean = useSelector((state: AuthState) => state.isValid);
