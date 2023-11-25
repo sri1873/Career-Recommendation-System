@@ -34,7 +34,7 @@ const Progress = () => {
                         <div className="card text-white bg-dark progress-card">
                             <div className="card-body progress-body">
                                 <h5 className="card-title">{skill}</h5>
-                                <a href="#" className="btn btn-outline-light">Solve Challenge</a>
+                                <button className="btn btn-outline-light">Solve Challenge</button>
                             </div>
                         </div>
 
