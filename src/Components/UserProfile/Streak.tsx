@@ -275,21 +275,9 @@ const Streak = () => {
             monthLegendOffset={8}
             monthBorderWidth={1.5}
             dayBorderWidth={1.5}
-            dayBorderColor="#ffffff"
-            legends={[
-                {
-                    anchor: 'bottom-right',
-                    direction: 'row',
-                    translateY: 36,
-                    itemCount: 4,
-                    itemWidth: 42,
-                    itemHeight: 36,
-                    itemsSpacing: 14,
-                    itemDirection: 'right-to-left'
-                }
-            ]}
+            dayBorderColor="#ffffff"            
             theme={{
-                "textColor": "#ffffff",
+                "text":{"fill":"white"},
                 "tooltip": {
                     "container": {
                         "background": "#000000",
