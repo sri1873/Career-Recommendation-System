@@ -12,7 +12,6 @@ const data1 = [
   }
   , {
     "id": "target",
-    "color": "hsl(349, 100%, 65%)",
     "data": [
       {
         "x": "start",

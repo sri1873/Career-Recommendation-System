@@ -22,7 +22,7 @@ const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
                     <i className="fa-solid fa-handshake mr-4 text-lg"></i>
                     {isOpen ? "Recommendations" : null}
                 </a> */}
-                <a href="/">
+                <a href="/progress">
                     <i className="fa-solid fa-chart-line mr-4 text-lg"></i>
                     {isOpen ? "Progress Tracker" : null}
                 </a>

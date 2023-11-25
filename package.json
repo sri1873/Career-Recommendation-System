@@ -6,6 +6,8 @@
     "@nivo/bar": "^0.83.1",
     "@nivo/line": "^0.83.1",
     "@nivo/pie": "^0.83.1",
+    "@nivo/radar": "^0.83.1",
+    "@nivo/calendar": "^0.83.1",
     "@nivo/radial-bar": "^0.83.1",
     "@nivo/tooltip": "^0.83.1",
     "@reduxjs/toolkit": "^1.9.3",

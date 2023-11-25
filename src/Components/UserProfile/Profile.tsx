@@ -2,6 +2,9 @@ import React from "react";
 import '../styles/profile.css';
 import { AuthState, User } from "../../types";
 import { useSelector } from "react-redux";
+import StarGraph from "./StarGraph";
+import Streak from "./Streak";
+
 
 
 const Profile: React.FC = () => {
@@ -36,7 +39,12 @@ const Profile: React.FC = () => {
                 <a href={userInfo.linkedIn}><i className="fa-brands fa-linkedin"></i>in/{userInfo.linkedIn.split('/')[userInfo.linkedIn.split('/').length - 2]}</a>
             </div>
             <div className="progress-tracker">
-                
+                <div className="star-container">
+                    <StarGraph />
+                </div>
+                <div className="streak-container">
+                    <Streak />
+                </div>
             </div>
 
         </div>

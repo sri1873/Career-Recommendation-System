@@ -73,12 +73,12 @@ const CareerFitting = () => {
                 <>
                     <div className="head">Recommended Paths</div>
                     {recommend.map((path) => (
-                        <div className="card" key={path._id} onClick={e => { setSelectedPath(path); setModal(true); }}  >
-                            <div className="card-body">
+                        <div className="card career-card" key={path._id} onClick={e => { setSelectedPath(path); setModal(true); }}  >
+                            <div className="card-body career-card-body">
                                 <h5 className="card-title">{path.role}</h5>
                                 <h6 className="card-subtitle text-body-secondary"><strong>{path.similarity?.toPrecision(4)}% Match</strong></h6>
-                                <p className="card-text">{path.description}</p>
-                                <div className="card-badges">
+                                <p className="card-text career-text">{path.description}</p>
+                                <div className="card-badges career-badges">
                                     {path.skills.map((skill) => (
                                         <span className="badge badge-pill badge-primary">{skill}</span>
                                     ))}
@@ -88,11 +88,11 @@ const CareerFitting = () => {
                     ))}</> : null}
             <div className="head">Career Paths</div>
             {careerPaths?.map((path) => (
-                <div key={path._id} className="card " onClick={e => { setSelectedPath(path); setModal(true); }} >
-                    <div className="card-body">
+                <div key={path._id} className="card career-card" onClick={e => { setSelectedPath(path); setModal(true); }} >
+                    <div className="card-body career-card-body">
                         <h5 className="card-title">{path.role}</h5>
-                        <p className="card-text">{path.description}</p>
-                        <div className="card-badges">
+                        <p className="card-text career-text">{path.description}</p>
+                        <div className="card-badges career-badges">
                             {path.skills.map((skill) => (
                                 <span className="badge badge-pill badge-primary">{skill}</span>
                             ))}

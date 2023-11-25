@@ -34,7 +34,7 @@
     margin-bottom: 0.75rem;
 }
 
-.card-body {
+.career-card-body {
     height: 35vh;
     padding: 1rem;
     border-radius: 0.375rem;
@@ -42,13 +42,13 @@
     background-size: cover;
     background-image: url('/public/card.svg');
 }
-.card-badges{
+.career-badges{
     overflow: hidden;
     text-wrap: nowrap;
     height: 20%;
 }
 
-.card-text{
+.career-text{
     padding-top: 0.5rem;
     height: 70px;
     line-height: 20px;
@@ -65,7 +65,7 @@
     overflow: hidden;
 }
 
-.card {
+.career-card {
     width: 18rem;
     margin-bottom: 1rem;
     cursor: pointer;
