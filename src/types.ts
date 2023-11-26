@@ -4,6 +4,16 @@ export interface User {
   userId: string | null;
   careerPath: string | null;
   roles: string[];
+  semester: string|null;
+  year: string|null;
+  linkedin: string | null;
+  profile_img: string | null;
+  city: string | null;
+  country: string | null;
+  date_of_birth: null;
+  first_name: string | null;
+  last_name: string | null;
+  state: string | null;
 }
 
 export interface AuthState {
@@ -20,10 +30,10 @@ export interface AuthActions {
 }
 
 export interface BookingDetails {
-  
-  extendable:boolean
-  extended:null|string,
-  paymentStatus: string|null;
+
+  extendable: boolean
+  extended: null | string,
+  paymentStatus: string | null;
   arena: string;
   bookingDate: string;
   bookingId: string;
@@ -75,7 +85,7 @@ export interface CoursesType {
 
 }
 export interface SignUpFormDetails {
-  gender:string,
+  gender: string,
   firstName: string,
   lastName: string,
   userName: string,
@@ -87,7 +97,7 @@ export interface SignUpFormDetails {
 }
 
 // ADMIN MODULE
-export interface BookingByUser{
+export interface BookingByUser {
   arena: string,
   bookingDate: Date,
   // timeslot: formatTimeSlot(entry.slot),
@@ -105,7 +115,7 @@ export interface OperformanceType {
   _id: string,
   performance: { target: number, actual: number, label: string }[]
 }
-export interface RankType{
+export interface RankType {
   _id: string,
   user_name: string,
   actual_marks: number,

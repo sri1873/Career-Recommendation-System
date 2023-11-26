@@ -3,6 +3,7 @@
     padding: 1.5rem;
     padding-left: 7vw;
     justify-content: space-between;
+    height: 90vh;
 }
 
 .p-details {
@@ -22,19 +23,43 @@
     width: 20vw;
     border: 1px solid rgba(0, 0, 0, 0.639);
 }
+.p-image:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
 
 
-.progress-tracker{
+.progress-tracker {
     border: 1px solid rgb(61, 61, 61);
     border-radius: 10px;
     width: 68vw;
     padding: 0.5rem;
 }
-.star-container{
+
+.star-container {
     width: 50%;
     height: 50%;
 }
-.streak-container{
+
+.streak-container {
     /* border: 2px solid #1ad6fc62; */
     height: 50%;
+}
+.body-profile{
+    display: flex;
+    justify-content: space-between;
+}
+.profile {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(0.85);
+    border: 1px solid black;
+}
+.profile:hover{
+    border: 2px solid black;
+    transform: scale(1);
+    opacity: 1;
 }

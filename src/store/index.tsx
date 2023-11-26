@@ -10,6 +10,16 @@ const user_sample = {
   userId: null,
   careerPath: null,
   roles: [],
+  semester: null,
+  year: null,
+  linkedin: null,
+  profile_img: null,
+  city: null,
+  country: null,
+  date_of_birth: null,
+  first_name: null,
+  last_name: null,
+  state: null
 }
 
 const persistConfig = {
@@ -56,5 +66,5 @@ const store = configureStore({
 
 export { store };
 export const persistor = persistStore(store);
-export const { toggleActive, addUser,removeUser, setErrorMsg, clearErrorMsg } =
+export const { toggleActive, addUser, removeUser, setErrorMsg, clearErrorMsg } =
   authSlice.actions;
