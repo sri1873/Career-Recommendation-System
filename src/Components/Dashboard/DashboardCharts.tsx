@@ -17,10 +17,11 @@ const DashboardCharts: React.FC = () => {
     const user: User = useSelector((state: AuthState) => state.user);
     useEffect(() => {
         base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
-        base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => { setOPerformance(res.data); })
+        base.get(`analysis/getoverallperformance?studentId=${user.userId}`).then(res => {
+            setOPerformance({_id:user.userId,performance:res.data?.results});
+        })
         base.get(`analysis/top_3rank?studentId=${user.userId}`).then(res => { setRanks(res.data); })
     }, [user.userId])
-
 
 
     return (

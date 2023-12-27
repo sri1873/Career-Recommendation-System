@@ -112,7 +112,7 @@ export interface BookingByUser {
 
 
 export interface OperformanceType {
-  _id: string,
+  _id: string|null,
   performance: { target: number, actual: number, label: string }[]
 }
 export interface RankType {
