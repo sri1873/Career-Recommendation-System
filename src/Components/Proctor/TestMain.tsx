@@ -8,6 +8,7 @@ import { AuthState, User } from '../../types';
 import '../styles/test.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useRestrictCopyPaste } from '../../helpers/hook';
 
 const questions = [
     {
@@ -111,7 +112,7 @@ const questions = [
 
 const TestMain = () => {
 
-
+    useRestrictCopyPaste({ window, actions: ["copy", "cut", "paste"] })
     const handle = useFullScreenHandle();
     const [isFullscreen, setIsFullscreen] = useState(false);
     const navigate: NavigateFunction = useNavigate();
@@ -119,6 +120,7 @@ const TestMain = () => {
     const [answers, setAnswers] = useState({});
     const skill = searchParams.get("s")
     const user: User = useSelector((state: AuthState) => state.user);
+
     useEffect(() => {
         // base.get(`test/getMockQuestions?skill=${skill}`).then(res => { })
     }, [skill])
@@ -150,7 +152,7 @@ const TestMain = () => {
         <FullScreen className="fullscreenStyle" handle={handle} >
             {handle.active ?
 
-                <div className="test-container">
+                <div className="test-container" onContextMenu={e=>e.preventDefault()}>
                     <form>
                         {questions.map((question) => (
                             <div className='qo-container' key={question.id}>
@@ -193,6 +195,7 @@ const TestMain = () => {
                         <li>We must be able to hear what you hear for the exam to be valid. Therefore do not use headphones, headsets or other similar devices.</li>
                         <li>Any noise and talking will be analysed for suspicious behaviour, so make sure you are in a quiet environment and refrain from talking.</li>
                         <li><strong>If you violate the online proctoring rules and receive an Unsatisfactory status, you automatically receive a score of 0 for the exam. </strong></li>
+                        <li style={{color:"red"}}><strong>Please note that until the duration of test you will not be able to open new tabs or new windows any attempt in doing so will be considered cheating you automatically receive a score of 0 for the exam.</strong></li>
                     </ul>
                     <button className='btn btn-outline-info' onClick={handle.enter}>
                         Start Test
