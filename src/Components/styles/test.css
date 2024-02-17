@@ -20,6 +20,7 @@
     background-color: rgb(69, 69, 69);
 }
 
+
 .options {
     border-left: 1px solid rgb(134, 134, 134);
     display: flex;
@@ -52,4 +53,20 @@ label {
 
 input {
     margin-right: 8px;
+}
+
+.nofs-container{
+    border: 1px solid rgb(134, 134, 134);
+    background-color: rgba(87, 87, 87, 0.63);
+    border-radius: 10px;
+    margin: 20px 80px 20px 100px;
+    padding: 2rem;
+    text-align: justify;
+}
+.nofs-container h3{
+    text-align: center;
+}
+.nofs-container ul li{
+    list-style: circle;
+    padding: 0.5rem;
 }

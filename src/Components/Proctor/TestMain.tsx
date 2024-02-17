@@ -35,7 +35,7 @@ const questions = [
     {
         id: 2,
         question: 'What is the question?',
-        code:`<SyntaxHighlighter language="javascript" style={docco}>
+        code: `<SyntaxHighlighter language="javascript" style={docco}>
                 {highlightedCode}
             </SyntaxHighlighter>`,
         options: [
@@ -60,7 +60,7 @@ const questions = [
     {
         id: 3,
         question: 'What is the question?',
-        code:`<SyntaxHighlighter language="javascript" style={docco}>
+        code: `<SyntaxHighlighter language="javascript" style={docco}>
                 {highlightedCode}
             </SyntaxHighlighter>`,
         options: [
@@ -85,7 +85,7 @@ const questions = [
     {
         id: 4,
         question: 'What is the question?',
-        code:`<SyntaxHighlighter language="javascript" style={docco}>
+        code: `<SyntaxHighlighter language="javascript" style={docco}>
                 {highlightedCode}
             </SyntaxHighlighter>`,
         options: [
@@ -109,7 +109,7 @@ const questions = [
     },
 ]
 
-const Test = () => {
+const TestMain = () => {
 
 
     const handle = useFullScreenHandle();
@@ -144,48 +144,62 @@ const Test = () => {
                 navigate('/', { replace: true });
             })
     }
-    const codeRef: any = useRef(null);
+
     return (
+
         <FullScreen className="fullscreenStyle" handle={handle} >
-            <button onClick={handle.enter}>
-                Enter fullscreen
-            </button>
-            
+            {handle.active ?
 
-            <div className="test-container">
-                <form>
-                    {questions.map((question) => (
-                        <div className='qo-container' key={question.id}>
-                            <div className="question">
-                                {question.question}
-                                {question.code ?
-                                <SyntaxHighlighter language="javascript" style={monokai}>
-                                    {question.code}
-                                </SyntaxHighlighter>:<></>
-                                }
-                            </div>
-                            <div className="options">
-                                {question.options.map((option) => (
-                                    <div className="option-container">
-                                        <label>
-                                            <input
-                                                type="radio"
-                                                name="mcqOption"
-                                                value={option.id}
-                                                onChange={() => handleOptionChange(question.id, option.id)}
-                                            />
-                                            {option.text}
-                                        </label>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </form>
-            </div>
-            <button className="nxt-btn">NEXT</button>
+                <div className="test-container">
+                    <form>
+                        {questions.map((question) => (
+                            <div className='qo-container' key={question.id}>
+                                <div className="question">
+                                    {question.question}
+                                    {question.code ?
+                                        <SyntaxHighlighter language="javascript" style={monokai}>
+                                            {question.code}
+                                        </SyntaxHighlighter> : <></>
+                                    }
+                                </div>
+                                <div className="options">
+                                    {question.options.map((option) => (
+                                        <div className="option-container">
+                                            <label>
+                                                <input
+                                                    type="radio"
+                                                    name={`mcqOption-${question.id}`}
+                                                    value={option.id}
+                                                    onChange={() => handleOptionChange(question.id, option.id)}
+                                                />
 
+                                                {option.text}
+                                            </label>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </form>
+                </div>
+                :
+                <div className="nofs-container">
+                    <h3>Rules & Guidelines</h3>
+                    <ul>
+                        <li>You must remain in full screen until test completes.</li>
+                        <li>Opening other tabs or going out of the focus will cancel your test.</li>
+                        <li>Your <strong>camera</strong> and <strong>mic</strong> must be on at all times.</li>
+                        <li>No other person is allowed to enter the room while you are taking the proctored exam</li>
+                        <li>We must be able to hear what you hear for the exam to be valid. Therefore do not use headphones, headsets or other similar devices.</li>
+                        <li>Any noise and talking will be analysed for suspicious behaviour, so make sure you are in a quiet environment and refrain from talking.</li>
+                        <li><strong>If you violate the online proctoring rules and receive an Unsatisfactory status, you automatically receive a score of 0 for the exam. </strong></li>
+                    </ul>
+                    <button className='btn btn-outline-info' onClick={handle.enter}>
+                        Start Test
+                    </button>
+                </div>}
         </FullScreen>
+
     )
 }
-export default Test
+export default TestMain

@@ -10,7 +10,7 @@ import { AuthState } from "./types";
 import CareerFitting from './Components/CareerFitting/CareerFitting';
 import Profile from './Components/UserProfile/Profile';
 import Progress from './Components/Proctor/Progress';
-import Test from './Components/Proctor/Test';
+import Test from './Components/Proctor/TestMain';
 
 function App() {
   const user: boolean = useSelector((state: AuthState) => state.isValid);
