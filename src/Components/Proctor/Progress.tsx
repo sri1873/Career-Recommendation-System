@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PieChart from './Dashboard/PieChart';
-import { AuthState, User } from '../types';
+import PieChart from '../Dashboard/PieChart';
+import { AuthState, User } from '../../types';
 import { useSelector } from 'react-redux';
-import base from '../apis/base';
-import './styles/progress.css'
+import base from '../../apis/base';
+import '../styles/progress.css'
 
 
 const Progress = () => {
@@ -12,9 +12,10 @@ const Progress = () => {
     useEffect(() => {
         base.post(`analysis/skill-Gap-Analysis?studentId=${user.userId}`).then(res => { setSkillGap(res.data); })
     }, [user.userId])
+    const handleSolve = (skill: string) => {
+        window.location.href=`/challenge?s=${skill}`
+    }
     return (
-
-
         <div className='progress-container'>
             <div className="pie-container">
                 <PieChart data={skillGap} />
@@ -34,7 +35,7 @@ const Progress = () => {
                         <div className="card text-white bg-dark progress-card">
                             <div className="card-body progress-body">
                                 <h5 className="card-title">{skill}</h5>
-                                <button className="btn btn-outline-light">Solve Challenge</button>
+                                <button className="btn btn-outline-light" onClick={e=>handleSolve(skill)}>Solve Challenge</button>
                             </div>
                         </div>
 

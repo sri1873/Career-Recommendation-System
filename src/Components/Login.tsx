@@ -61,11 +61,11 @@ const Login = () => {
             <div className="form-container">
                 <div>
                     <h2 className="logo-text">
-                    <img
-                        className="logo"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Your Company"
-                    />
+                        <img
+                            className="logo"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="Your Company"
+                        />
                         Sign in to your account
                     </h2>
                 </div>

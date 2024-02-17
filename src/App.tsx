@@ -9,7 +9,8 @@ import RequireAuth from './helpers/RequireAuth';
 import { AuthState } from "./types";
 import CareerFitting from './Components/CareerFitting/CareerFitting';
 import Profile from './Components/UserProfile/Profile';
-import Progress from './Components/Progress';
+import Progress from './Components/Proctor/Progress';
+import Test from './Components/Proctor/Test';
 
 function App() {
   const user: boolean = useSelector((state: AuthState) => state.isValid);
@@ -25,6 +26,7 @@ function App() {
             <Route path='/careerfitting' element={<CareerFitting />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/progress' element={<Progress />} />
+            <Route path='/challenge' element={<Test/>} />
           </Route>
 
 
