@@ -8,7 +8,7 @@ import { AuthState, User } from '../../types';
 import '../styles/test.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { useRestrictCopyPaste } from '../../helpers/hook';
+import { useRestrictCopyPaste,useRestrictescape } from '../../helpers/hook';
 import Error from '../../helpers/Error';
 
 const questions = [
@@ -114,6 +114,8 @@ const questions = [
 const TestMain = () => {
 
     useRestrictCopyPaste({ window, actions: ["copy", "cut", "paste"] })
+    useRestrictescape({ window, actions: ["blur"] })
+
     const handle = useFullScreenHandle();
     const [isFullscreen, setIsFullscreen] = useState(false);
     const navigate: NavigateFunction = useNavigate();
@@ -197,7 +199,7 @@ const TestMain = () => {
                         <li>We must be able to hear what you hear for the exam to be valid. Therefore do not use headphones, headsets or other similar devices.</li>
                         <li>Any noise and talking will be analysed for suspicious behaviour, so make sure you are in a quiet environment and refrain from talking.</li>
                         <li><strong>If you violate the online proctoring rules and receive an Unsatisfactory status, you automatically receive a score of 0 for the exam. </strong></li>
-                        <li style={{color:"red"}}><strong>Please note that until the duration of test you will not be able to open new tabs or new windows any attempt in doing so will be considered cheating you automatically receive a score of 0 for the exam.</strong></li>
+                        <li style={{color:"red"}}><strong>Please note that until the duration of test attempting to open new tabs or new windows will be considered cheating you automatically receive a score of 0 for the exam.</strong></li>
                     </ul>
                     <button className='btn btn-outline-info' onClick={handle.enter}>
                         Start Test

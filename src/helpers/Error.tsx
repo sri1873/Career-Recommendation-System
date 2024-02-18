@@ -30,7 +30,6 @@ const Error: React.FC<ErrorProps> = ({ color, message }) => {
       ></button>
     </div>
   );
-  // </div>
 
   return message ? errorResourse : <></>;
 };
