@@ -47,7 +47,6 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch((err) => {
-
                 dispatch(setErrorMsg("Invalid Credentials!"));
             });
     };

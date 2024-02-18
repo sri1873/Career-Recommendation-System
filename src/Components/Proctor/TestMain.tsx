@@ -9,6 +9,7 @@ import '../styles/test.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { useRestrictCopyPaste } from '../../helpers/hook';
+import Error from '../../helpers/Error';
 
 const questions = [
     {
@@ -150,6 +151,7 @@ const TestMain = () => {
     return (
 
         <FullScreen className="fullscreenStyle" handle={handle} >
+            <Error color={"danger"} message={useSelector((state: AuthState) => state.errorMsg)} />
             {handle.active ?
 
                 <div className="test-container" onContextMenu={e=>e.preventDefault()}>
