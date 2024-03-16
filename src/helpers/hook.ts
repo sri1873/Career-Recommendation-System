@@ -1,9 +1,8 @@
+import { Dispatch } from "@reduxjs/toolkit";
 import { useEffect } from "react";
-import Error from "./Error";
+import { useFullScreenHandle } from "react-full-screen";
 import { useDispatch } from "react-redux";
 import { setErrorMsg } from "../store";
-import { Dispatch } from "@reduxjs/toolkit";
-import { useFullScreenHandle } from "react-full-screen";
 
 type EventTypeCPC = "paste" | "copy" | "cut"
 type EventTypeEF = 'blur'
@@ -18,6 +17,10 @@ interface RestrictEscapeProps {
 export const useRestrictCopyPaste = (props: RestrictCopyPasteProps) => {
     const dispatch: Dispatch = useDispatch();
     useEffect(() => {
+        const preventPaste = (e: Event) => {
+            e.preventDefault();
+            dispatch(setErrorMsg("Copying and pasting is not allowed!"))
+        };
         props.actions?.forEach((action) => {
             action && window.addEventListener(action, preventPaste);
         })
@@ -26,18 +29,22 @@ export const useRestrictCopyPaste = (props: RestrictCopyPasteProps) => {
                 action && window.removeEventListener(action, preventPaste);
             })
         };
-    }, [props.window, props.actions]);
+    }, [props.window, props.actions,dispatch]);
 
-    const preventPaste = (e: Event) => {
-        e.preventDefault();
-        const message = "Copying and pasting is not allowed!";
-        dispatch(setErrorMsg("Copying and pasting is not allowed!"))
-    };
 }
 export const useRestrictescape = (props: RestrictEscapeProps) => {
     const dispatch: Dispatch = useDispatch();
     const handle = useFullScreenHandle();
     useEffect(() => {
+        const preventEscape = (e: Event) => {
+            e.preventDefault();
+            if (handle.active === false) {
+                if (document.fullscreenElement !== null) {
+                    document.exitFullscreen();
+                }
+                dispatch(setErrorMsg("Test window lost focus!"))
+            }
+        };
         props.actions?.forEach((action) => {
             action && window.addEventListener(action, preventEscape);
         })
@@ -46,15 +53,7 @@ export const useRestrictescape = (props: RestrictEscapeProps) => {
                 action && window.removeEventListener(action, preventEscape);
             })
         };
-    }, [props.window, props.actions]);
+    }, [props.window, props.actions, dispatch,handle]);
 
-    const preventEscape = (e: Event) => {
-        e.preventDefault();
-        if (handle.active === false) {
-            if (document.fullscreenElement !== null) {
-                document.exitFullscreen();
-            }
-            dispatch(setErrorMsg("Test window lost focus!"))
-        }
-    };
+
 }

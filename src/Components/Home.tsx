@@ -11,30 +11,38 @@ const Home: React.FC = () => {
         window.location.href = '/careerfitting'
     }
     const user: User = useSelector((state: AuthState) => state.user);
-    return (
-        <>
-            {user.careerPath ?
-                <div className='home'>
-                    <DashboardCharts />
-                    <div className="rec-container">
-                        <Recommendation />
-                        <div className='c-path-home' >
-                            <div>
-                                <i className="fa-solid fa-road"></i>
-                                <span className="sub">Career Path</span>
-                                <a href="/careerfitting">
-                                <div className="sub">{user.careerPath}</div>
-                                </a>
+    if ('INDC' in user.roles) {
+        return (
+            <>Hello</>
+        )
+    }
+    else {
+        return (
+            <>
+                {user.careerPath ?
+                    <div className='home'>
+                        <DashboardCharts />
+                        <div className="rec-container">
+                            <Recommendation />
+                            <div className='c-path-home' >
+                                <div>
+                                    <i className="fa-solid fa-road"></i>
+                                    <span className="sub">Career Path</span>
+                                    <a href="/careerfitting">
+                                        <div className="sub">{user.careerPath}</div>
+                                    </a>
+                                </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
-                </div>
-                :
-                goToCareerPath()
-            }
-        </>
-    );
+                    :
+                    goToCareerPath()
+                }
+            </>
+        );
+    }
+
 }
 export default Home
