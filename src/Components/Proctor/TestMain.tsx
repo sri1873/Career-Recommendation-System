@@ -1,17 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { FullScreen, FullScreenHandle, useFullScreenHandle } from "react-full-screen";
+import { useEffect, useState } from 'react';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { NavigateFunction, useNavigate } from "react-router-dom/dist";
-import base from '../../apis/base';
-import { AuthState, User } from '../../types';
-import '../styles/test.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { useRestrictCopyPaste, useRestrictescape } from '../../helpers/hook';
-import Error from '../../helpers/Error';
+import base from '../../apis/base';
 import CustomWebcam from '../../helpers/CustomWebcam';
-import { error } from 'console';
+import Error from '../../helpers/Error';
+import { useRestrictCopyPaste, useRestrictescape } from '../../helpers/hook';
+import { AuthState } from '../../types';
+import '../styles/test.css';
 
 
 const questions = [
@@ -124,10 +123,6 @@ const TestMain = () => {
     const [searchParams] = useSearchParams();
     const [answers, setAnswers] = useState({});
     const skill = searchParams.get("s")
-    const user: User = useSelector((state: AuthState) => state.user);
-    const [vidStream, setVidStream] = useState < MediaStream>();
-    const [hasCameraPermission, setHasCameraPermission] = useState(false);
-    const [hasMicrophonePermission, setHasMicrophonePermission] = useState(false);
     useEffect(() => {
         // base.get(`test/getMockQuestions?skill=${skill}`).then(res => { })
     }, [skill])
@@ -144,7 +139,6 @@ const TestMain = () => {
             audio: true,
         }).then(
             stream => {
-                setVidStream(stream)
                 handle.enter()
             }
         ).catch(error => alert("Camera & mic needed to begin test"));
