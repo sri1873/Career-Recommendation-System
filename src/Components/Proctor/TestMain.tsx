@@ -8,8 +8,11 @@ import { AuthState, User } from '../../types';
 import '../styles/test.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { useRestrictCopyPaste,useRestrictescape } from '../../helpers/hook';
+import { useRestrictCopyPaste, useRestrictescape } from '../../helpers/hook';
 import Error from '../../helpers/Error';
+import CustomWebcam from '../../helpers/CustomWebcam';
+import { error } from 'console';
+
 
 const questions = [
     {
@@ -117,13 +120,14 @@ const TestMain = () => {
     useRestrictescape({ window, actions: ["blur"] })
 
     const handle = useFullScreenHandle();
-    const [isFullscreen, setIsFullscreen] = useState(false);
     const navigate: NavigateFunction = useNavigate();
     const [searchParams] = useSearchParams();
     const [answers, setAnswers] = useState({});
     const skill = searchParams.get("s")
     const user: User = useSelector((state: AuthState) => state.user);
-
+    const [vidStream, setVidStream] = useState < MediaStream>();
+    const [hasCameraPermission, setHasCameraPermission] = useState(false);
+    const [hasMicrophonePermission, setHasMicrophonePermission] = useState(false);
     useEffect(() => {
         // base.get(`test/getMockQuestions?skill=${skill}`).then(res => { })
     }, [skill])
@@ -134,7 +138,21 @@ const TestMain = () => {
         }));
     }
     console.log(answers)
-    const handleSubmit = () => {
+    const startTest = () => {
+        navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: true,
+        }).then(
+            stream => {
+                setVidStream(stream)
+                handle.enter()
+            }
+        ).catch(error => alert("Camera & mic needed to begin test"));
+
+    }
+    const testSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        alert("Test has been submitted successfully!")
         base({
             method: "POST",
             url: `test/submitMockAnswers?skill=${skill}`,
@@ -148,16 +166,17 @@ const TestMain = () => {
             .then((res) => {
                 navigate('/', { replace: true });
             })
-    }
 
+    }
     return (
 
         <FullScreen className="fullscreenStyle" handle={handle} >
             <Error color={"danger"} message={useSelector((state: AuthState) => state.errorMsg)} />
             {handle.active ?
-
-                <div className="test-container" onContextMenu={e=>e.preventDefault()}>
-                    <form>
+                <div className="test-container" onContextMenu={e => e.preventDefault()}>
+                    <form onSubmit={e => testSubmit(e)}>
+                        <CustomWebcam />
+                        <video className="cam" id='cam' ></video>
                         {questions.map((question) => (
                             <div className='qo-container' key={question.id}>
                                 <div className="question">
@@ -173,6 +192,7 @@ const TestMain = () => {
                                         <div className="option-container">
                                             <label>
                                                 <input
+                                                    required
                                                     type="radio"
                                                     name={`mcqOption-${question.id}`}
                                                     value={option.id}
@@ -186,6 +206,8 @@ const TestMain = () => {
                                 </div>
                             </div>
                         ))}
+
+                        <button type="submit" className='btn btn-outline-info' >Submit</button>
                     </form>
                 </div>
                 :
@@ -199,9 +221,9 @@ const TestMain = () => {
                         <li>We must be able to hear what you hear for the exam to be valid. Therefore do not use headphones, headsets or other similar devices.</li>
                         <li>Any noise and talking will be analysed for suspicious behaviour, so make sure you are in a quiet environment and refrain from talking.</li>
                         <li><strong>If you violate the online proctoring rules and receive an Unsatisfactory status, you automatically receive a score of 0 for the exam. </strong></li>
-                        <li style={{color:"red"}}><strong>Please note that until the duration of test attempting to open new tabs or new windows will be considered cheating you automatically receive a score of 0 for the exam.</strong></li>
+                        <li style={{ color: "red" }}><strong>Please note that until the duration of test attempting to open new tabs or new windows will be considered cheating you automatically receive a score of 0 for the exam.</strong></li>
                     </ul>
-                    <button className='btn btn-outline-info' onClick={handle.enter}>
+                    <button className='btn btn-outline-info' onClick={e => startTest()}>
                         Start Test
                     </button>
                 </div>}
