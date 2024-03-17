@@ -1,5 +1,5 @@
 export interface User {
-  userName: string | null;
+  user_name: string | null;
   token: string | null;
   userId: string | null;
   careerPath: string | null;

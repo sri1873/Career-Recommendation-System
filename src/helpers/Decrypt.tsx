@@ -24,7 +24,7 @@ const Decrypt = (token: string): User => {
   var onlyRoles: string[] = [];
   decode?.roles?.map((role) => onlyRoles.push(role?.authority));
   const user: User = {
-    userName: decode.email,
+    user_name: decode.email,
     token: token,
     userId: decode._id,
     careerPath: decode.carrer_path,

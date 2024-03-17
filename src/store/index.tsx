@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import { AuthState, User } from "../types";
 
 const user_sample = {
-  userName: null,
+  user_name: null,
   token: null,
   userId: null,
   careerPath: null,

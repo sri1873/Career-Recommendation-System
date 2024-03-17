@@ -11,6 +11,7 @@ import CareerFitting from './Components/CareerFitting/CareerFitting';
 import Profile from './Components/UserProfile/Profile';
 import Progress from './Components/Proctor/Progress';
 import Test from './Components/Proctor/TestMain';
+import IndustryMain from './Components/Industry/IndustryMain';
 
 function App() {
   const user: boolean = useSelector((state: AuthState) => state.isValid);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route element={<RequireAuth />}>
             <Route path='/' element={<Home />} />
+            <Route path='/industry' element={<IndustryMain />} />
             <Route path='/careerfitting' element={<CareerFitting />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/progress' element={<Progress />} />

@@ -94,8 +94,8 @@ const Profile: React.FC = () => {
                 <div onClick={e => setModal(true)}>
                     <img alt="profile-pic" className="p-image" src={user.profile_img ? user.profile_img : "/profile.png"}></img>
                 </div>
-                <h3>{user.userName?.split('.')[0]}</h3>
-                <h6>{user.userName}</h6>
+                <h3>{user.user_name?.split('.')[0]}</h3>
+                <h6>{user.user_name}</h6>
                 <div className="btn btn-outline-secondary col-md-12 p-0">Edit Profile</div>
                 <span><i className="fa-solid fa-user-graduate"></i>{user.careerPath}</span>
                 <span><i className="fa-solid fa-graduation-cap"></i>Year {user.year} Semester {user.semester}</span>
