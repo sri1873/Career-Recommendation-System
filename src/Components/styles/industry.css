@@ -1,0 +1,71 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.students-container {
+    border-top: 1.5px solid rgb(69, 69, 69);
+    padding: 2rem;
+    margin-top: 2rem;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+.sk-btn {
+    display: flex;
+}
+
+.skill-container {
+    display: block;
+    overflow: hidden;
+    text-wrap: nowrap;
+    height: 100%;
+}
+
+.jobs-container {
+    border-radius: 15px;
+    float: right;
+    height: 25vh;
+    background-color: rgb(69, 69, 69);
+    padding: 10px;
+    overflow-x: auto;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.jobs-container:hover {
+    border: 1px solid white;
+
+}
+
+.sub-container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-j {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    min-width: 200px;
+    height: 100%;
+    cursor: pointer;
+}
+.skill-cont-job{
+    max-width: 100%;
+    padding-top: 10px;
+}
+.add-container:hover{
+    cursor: pointer;
+    background-color: rgba(104, 104, 104, 0.838);
+    border-radius: 10px;
+    padding: 5px;
+}
+.filter-container{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    padding: 2rem;
+}
