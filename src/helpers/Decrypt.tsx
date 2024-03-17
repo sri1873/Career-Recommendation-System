@@ -5,7 +5,7 @@ interface DecodedToken {
   email: string;
   carrer_path: string | null;
   _id:string
-  roles: { authority: string }[];
+  roles: string ;
   user_name: string | null;
   semester: string;
   year: string;
@@ -21,14 +21,12 @@ interface DecodedToken {
 
 const Decrypt = (token: string): User => {
   const decode = jwt<DecodedToken>(token);
-  var onlyRoles: string[] = [];
-  decode?.roles?.map((role) => onlyRoles.push(role?.authority));
   const user: User = {
     user_name: decode.email,
     token: token,
     userId: decode._id,
     careerPath: decode.carrer_path,
-    roles: onlyRoles,
+    roles: decode.roles,
     semester: decode.semester,
     year: decode.year,
     linkedin:decode.linkedin,

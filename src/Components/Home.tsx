@@ -4,6 +4,7 @@ import { AuthState, User } from "../types";
 import DashboardCharts from './Dashboard/DashboardCharts';
 import Recommendation from './Recommendation';
 import './styles/home.css';
+import IndustryMain from './Industry/IndustryMain';
 
 const Home: React.FC = () => {
     const goToCareerPath = () => {
@@ -11,9 +12,9 @@ const Home: React.FC = () => {
         window.location.href = '/careerfitting'
     }
     const user: User = useSelector((state: AuthState) => state.user);
-    if ('INDC' in user.roles) {
+    if ('INDC' === user.roles) {
         return (
-            <>Hello</>
+            <IndustryMain/>
         )
     }
     else {

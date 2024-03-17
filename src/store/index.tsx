@@ -9,7 +9,7 @@ const user_sample = {
   token: null,
   userId: null,
   careerPath: null,
-  roles: [],
+  roles: null,
   semester: null,
   year: null,
   linkedin: null,

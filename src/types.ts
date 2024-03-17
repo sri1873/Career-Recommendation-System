@@ -3,7 +3,7 @@ export interface User {
   token: string | null;
   userId: string | null;
   careerPath: string | null;
-  roles: string[];
+  roles: string |null;
   semester: string|null;
   year: string|null;
   linkedin: string | null;

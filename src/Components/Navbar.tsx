@@ -2,15 +2,17 @@ import React,{useState} from "react";
 import Sidebar from "./Sidebar";
 import { Dispatch } from '@reduxjs/toolkit';
 import './styles/navbar.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {  removeUser, toggleActive } from "../store";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { AuthState, User } from "../types";
 
 
 const Navbar: React.FC = () => {
     const dispatch: Dispatch = useDispatch();
     const navigate: NavigateFunction = useNavigate();
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const user: User = useSelector((state: AuthState) => state.user);
 
     const toggleSideBar: React.MouseEventHandler<HTMLElement> = (e) => {
         setIsOpen(!isOpen);
@@ -39,8 +41,10 @@ const Navbar: React.FC = () => {
                     </div>
                 </li> */}
             </ul>
-        </div>
-            <Sidebar isOpen={ isOpen} />
+            </div>
+            {'STUD' === user.roles ?
+            <Sidebar isOpen={ isOpen} /> :<></>
+            }
         </>
     );
 }
