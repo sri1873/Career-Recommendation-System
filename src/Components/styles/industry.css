@@ -72,3 +72,8 @@
     justify-content: space-between;
     width: 50%;
 }
+
+.modal-dialog{
+    margin: 28px 28px !important;
+    margin-left: 120px !important;
+}

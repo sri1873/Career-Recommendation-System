@@ -19,7 +19,8 @@ const user_sample = {
   date_of_birth: null,
   first_name: null,
   last_name: null,
-  state: null
+  state: null,
+  skills:[]
 }
 
 const persistConfig = {

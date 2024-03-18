@@ -14,8 +14,29 @@ export interface User {
   first_name: string | null;
   last_name: string | null;
   state: string | null;
+  skills: string[];
 }
-
+export interface UserDb{
+  _id: string | null;
+  academic_info:string|null,
+  career_path: string | null;
+  email: string | null;
+  password: string | null;
+  semester: string | null;
+  user_name: string | null;
+  year: string | null;
+  linkedin: string | null;
+  phone_number: string | null;
+  profile_img: string | null;
+  city: string | null;
+  country: string | null;
+  date_of_birth: null;
+  first_name: string | null;
+  last_name: string | null;
+  state: string | null;
+  roles: string | null;
+  skills: string[];
+}
 export interface AuthState {
   isValid: boolean;
   user: User;

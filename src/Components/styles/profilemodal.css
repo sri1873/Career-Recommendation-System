@@ -1,0 +1,9 @@
+.profilemodal{
+    background-image: url(../../../public/side-bar-bg.svg) !important;
+    color: white;
+    width: 100vw;
+    height: 80vh;    
+}
+.mod-container{
+    margin: 0 !important;
+}

@@ -17,6 +17,7 @@ interface DecodedToken {
   first_name: string | null;
   last_name: string | null;
   state: string | null;
+  skills: string[];
 }
 
 const Decrypt = (token: string): User => {
@@ -37,6 +38,7 @@ const Decrypt = (token: string): User => {
     first_name: decode.first_name,
     last_name: decode.last_name,
     state: decode.state,
+    skills:decode.skills
   };
   return user;
 };
